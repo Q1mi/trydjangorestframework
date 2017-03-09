@@ -20,3 +20,9 @@ class AuthorViewSet(viewsets.ModelViewSet):
 class PublisherViewSet(viewsets.ModelViewSet):
     queryset = models.Publisher.objects.all()
     serializer_class = serializers.PublisherSerializer
+
+
+def book_list(request):
+    queryset = models.Book.objects.all()
+    return queryset
+
