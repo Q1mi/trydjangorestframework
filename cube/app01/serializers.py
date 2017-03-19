@@ -12,19 +12,20 @@ from rest_framework import serializers
 from . import models
 
 
+class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+    company = serializers.StringRelatedField()
+
+    class Meta:
+        model = models.Author
+        fields = "__all__"
+
+
 class BookSerializer(serializers.HyperlinkedModelSerializer):
-    author = serializers.StringRelatedField(many=True)
+    author = AuthorSerializer(many=True)
     publisher = serializers.StringRelatedField()
 
     class Meta:
         model = models.Book
-        fields = "__all__"
-
-
-class AuthorSerializer(serializers.HyperlinkedModelSerializer):
-
-    class Meta:
-        model = models.Author
         fields = "__all__"
 
 

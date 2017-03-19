@@ -19,3 +19,7 @@ class AuthorAdmin(admin.ModelAdmin):
 class PublisherAdmin(admin.ModelAdmin):
     exclude = ()
 
+
+@admin.register(models.MC)
+class MCAdmin(admin.ModelAdmin):
+    exclude = ()
